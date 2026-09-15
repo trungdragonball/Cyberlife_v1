@@ -1,0 +1,26 @@
+from dataclasses import dataclass
+from enum import Enum
+
+class SystemState(str, Enum):
+    BOOTING="BOOTING"; INITIALIZING="INITIALIZING"; DEGRADED="DEGRADED"
+    READY="READY"; RUNNING="RUNNING"; MAINTENANCE="MAINTENANCE"
+    LOCKED="LOCKED"; RECOVERING="RECOVERING"; SHUTTING_DOWN="SHUTTING_DOWN"
+    STOPPED="STOPPED"; ERROR="ERROR"
+
+class ErrorCode(str, Enum):
+    PERMISSION_DENIED="PERMISSION_DENIED"; AUTH_REQUIRED="AUTH_REQUIRED"
+    TRUST_TOO_LOW="TRUST_TOO_LOW"; SAFETY_BLOCKED="SAFETY_BLOCKED"
+    RESOURCE_UNAVAILABLE="RESOURCE_UNAVAILABLE"; DEVICE_OFFLINE="DEVICE_OFFLINE"
+    PROVIDER_UNAVAILABLE="PROVIDER_UNAVAILABLE"; PAYMENT_PENDING="PAYMENT_PENDING"
+    VALIDATION_FAILED="VALIDATION_FAILED"; NOT_FOUND="NOT_FOUND"; CONFLICT="CONFLICT"
+
+@dataclass(frozen=True)
+class SecurityContext:
+    request_id:str
+    actor_id:str
+    session_id:str
+    permission_context:str
+    trust_context:str
+    risk_context:str
+    timestamp:str
+    audit_id:str

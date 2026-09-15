@@ -1,0 +1,1 @@
+# Commerce domain\n\nLocked V1 domain boundary. Modules communicate through contracts/interfaces/events.\n

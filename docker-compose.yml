@@ -1,0 +1,8 @@
+services:
+  cyberlife:
+    build: .
+    ports: ["8000:8000"]
+    environment:
+      CYBERLIFE_ENV: development
+      DATABASE_URL: sqlite:///./cyberlife.db
+      SECRET_KEY: change-me
