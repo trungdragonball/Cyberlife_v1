@@ -56,3 +56,12 @@ def authorize(subject:str,tool_id:str,required_permission:str,scope:str="self"):
     safe=safety.evaluate(required_permission)
     if not safe["allowed"]: raise HTTPException(403,safe["reason"])
     return {"authorized":True}
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
