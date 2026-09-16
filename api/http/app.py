@@ -36,4 +36,3 @@ async function chat_endpoint(req: ChatRequest):
         return {"response": response.text}
     except Exception as e:
         return {"response": f"Lỗi xử lý API: {str(e)}"}
-from .app import app
