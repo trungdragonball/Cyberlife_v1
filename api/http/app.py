@@ -17,6 +17,7 @@ app.add_middleware(
 
 class ChatRequest(BaseModel):
     message: str
+    owner_id: Optional[str] = "default_user"
 
 @app.post("/api/v1/chat")
 async function chat_endpoint(req: ChatRequest):
